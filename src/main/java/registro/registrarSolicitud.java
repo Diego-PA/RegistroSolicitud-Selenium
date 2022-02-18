@@ -35,6 +35,19 @@ public class registrarSolicitud {
         driver.findElement(By.id("nip")).sendKeys("1234");
 
         driver.findElement(By.xpath("//*[@id=\"form-alumno\"]/div/button")).click();
+
+        //esperamos a que cargue la nueva página
+        //select
+        Select selNivel = new Select(driver.findElement(By.xpath("//*[@id=\"myform\"]/div[2]/div[1]/select")));
+        selNivel.selectByValue("L");
+
+        //ESTE SELECT YA NO SIRVE POR QUE NO HA CARGADO AÚN
+        Select selCarrera = new Select(driver.findElement(By.xpath("//*[@id=\"myform\"]/div[2]/div[2]/select")));
+        selCarrera.selectByValue("110");
+
+        //select
+        //Select selNivel = new Select(driver.findElement(By.xpath("//*[@id=\"myform\"]/div[2]/div[1]/select")));
+        //selNivel.selectByValue("L");
     }
 
 }
