@@ -96,6 +96,12 @@ public class registrarSolicitud {
         Scanner scan1 = new Scanner(System.in);
         String input1 = scan1.nextLine();
 
+        driver.findElement(By.xpath("//*[@id=\"myform\"]/div[2]/div[8]/div/input")).sendKeys(input1);
+
+        //Explicit wait
+        WebDriverWait ewaitCode = new WebDriverWait(driver, 300);
+        ewaitCode.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"myform\"]/div[2]/div[8]/div/div/i")));
+
         js.executeScript("window.scrollBy(0,1750)", "");
         //Explicit wait
         WebDriverWait ewait4 = new WebDriverWait(driver, 300);
@@ -115,6 +121,20 @@ public class registrarSolicitud {
 
         WebElement upload4 = driver.findElement(By.xpath("//*[@id=\"documento.5\"]"));
         upload4.sendKeys("C:\\Users\\diego\\IdeaProjects\\RegistroSolicitudArchivos\\src\\Files\\DocumentoPrueba.pdf");
+
+        //Explicit wait
+        WebDriverWait ewait5 = new WebDriverWait(driver, 300);
+        ewait5.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"myform\"]/div[2]/div[13]/div[1]/p[2]"), "DocumentoPrueba.pdf"));
+
+        driver.findElement(By.xpath("//*[@id=\"focus\"]/button[1]")).click();
+
+        WebElement modal = driver.findElement(By.xpath("//*[@id=\"7cef8a734855777c2a9d0caf42666e69\"]/div[2]/div[1]"));
+
+        //Explicit wait
+        WebDriverWait ewait6 = new WebDriverWait(driver, 300);
+        ewait6.until(ExpectedConditions.visibilityOf(modal));
+
+        driver.findElement(By.xpath("//*[@id=\"7cef8a734855777c2a9d0caf42666e69\"]/div[2]/div[2]/button[1]")).click();
 
     }
 
